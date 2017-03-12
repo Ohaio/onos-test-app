@@ -86,6 +86,8 @@ public class AppComponent {
 
     @Deactivate
     protected void deactivate() {
+        HostToHostIntent intent = (HostToHostIntent) intentService.getIntent(key);
+        intentService.withdraw(intent);
         log.info("Stopped");
     }
 
